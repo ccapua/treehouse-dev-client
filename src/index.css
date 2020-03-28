@@ -1,0 +1,914 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	scroll-behavior: smooth;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+.app {
+  font-family: 'Source Sans Pro', 'sans-serif';
+}
+/* ==== HEADER ============================================================= */
+.nav-buttons {
+  position: relative;
+  height: 100%;
+  margin-top: 2vh;
+  z-index: 1;
+}
+.nav-buttons > a {
+  position: relative;
+  z-index: 1;
+}
+.nav-buttons > a > i {
+  position: relative;
+  z-index: 1;
+}
+#notifications-button {
+  color: white;
+  position: relative;
+  top: -2vh;
+  left: -2vw;
+  height: 60%;
+  border: none;
+  background-color: inherit;
+}
+#notification-badge {
+  position: absolute;
+  top: 10px;
+  background-color: red;
+  border-radius: 20px;
+  height: 15px;
+  width: 15px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 1rem;
+  z-index: 5;
+}
+/* ==== NOTIFICATIONS ====================================================== */
+#notifications-list[data-show="yes"] {
+  position: absolute;
+  top: 7vh;
+  right: 7vw;
+  display: block;
+  border: solid 2px black;
+  height: 30vh;
+  width: 50vw;
+  overflow-y: scroll;
+  overflow-x: none;
+  z-index: 50;
+}
+#notifications-list[data-show="no"] {
+  display: none;
+}
+.notification-card {
+  background-color: lightgrey;
+  height: 33%;
+  width: 100%;
+}
+.notification-close {
+  position: absolute;
+  background-color: lightgrey;
+  right: 0;
+  border: none;
+  height: 5vh;
+  width: 8vw;
+}
+.notification-accept, .notification-accept > i {
+  display: inline-block;
+  font-size: 0.9rem;
+  border: none;
+  height: 3vh;
+}
+.notification-ignore, .notification-ignore > i {
+  display: inline-block;
+  font-size: 0.9rem;
+  border: none;
+  height: 3vh;
+}
+/* ==== LANDING PAGE ======================================================= */
+.landing-page {
+  display: flex;
+  margin-top: 12vh;
+}
+.form-buttons{
+  border-left: 1px solid grey;
+}
+.blurb {
+  text-align: left;
+  margin-left: 25vw;
+}
+.blurb > h2 {
+  margin-top: 6vh;
+  margin-bottom: 1vh;
+  font-size: 1.5rem;
+}
+.blurb > p {
+  margin-bottom: 1vh;
+}
+.blurb > ol {
+  list-style-type: circle;
+  margin-left: 1vw;
+}
+/* ==== DASHBOARD ========================================================== */
+#sidenav-show {
+  box-shadow: 3px 6px 9px grey;
+  position: fixed;
+  float: left;
+  margin-top: 29vh;
+  width: 50px;
+  height: 270px;
+  border: solid 1px black;
+  border-left: 0;
+  border-radius: 0 9px 9px 0;
+}
+#sidenav-show > i {
+  margin: 7px 13px;
+}
+#sidenav-show > div {
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0;
+}
+.dashboard > h1 {
+  font-size: 3rem;
+  margin-top: 3vw;
+}
+.dashboard-body > p {
+  margin-top: 3vh;
+  margin-left: 1vw;
+  font-size: 1rem;
+}
+/* ==== CHATS LIST ========================================================== */
+.chats-list {
+  margin-left: 9vw;
+  width: 80vw;
+}
+.chats-list > h3 {
+  margin: 1vh 0 0 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.chat-box {
+  cursor: pointer;
+  background-color: #E6FCFF;
+  border: solid 1px black;
+  max-height: 14vh;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-wrap: none;
+  white-space: nowrap;
+  margin-top: 1vh;
+}
+.chat-name {
+  font-weight: bold;
+  margin-top: 0.5vh;
+  margin-left: 1vw;
+}
+.chat-users {
+  margin-left: 1vw;
+  margin-top: 0.5vh;
+}
+.chat-box > hr {
+  margin: 1vh 0 0.5vh 4vw;
+  width: 90%;
+}
+.recent {
+  margin-left: 1vw;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.recent > div:first-child {
+  font-weight: bold;
+}
+.recent-message {
+  margin-top: -2vh;
+}
+/* ==== FRIENDS LIST ======================================================== */
+#friends-container {
+  border: solid 1px black;
+  border-left: 0;
+  border-radius: 0 1vw 1vw 0;
+  position: relative;
+  height: auto;
+  height: 90vh;
+  max-height: 150vh;
+  width: 600px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 900;
+}
+#friends-container::-webkit-scrollbar {
+  width: 1rem;
+}
+#friends-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+#friends-container::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+  border-radius: 1vw;
+}
+#friends-container > h3 {
+  text-align: center;
+  letter-spacing: 1rem;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+#friends-container[data-state=show] {
+  transition: 0.3s;
+}
+#friends-container[data-state=hide] {
+  transition: 0.3s;
+}
+#friends-list-control > i {
+
+  font-size: 3rem;
+  position: absolute;
+  right: 1vw;
+  top: 1vw;
+}
+#friends-buttons {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-around;
+}
+#friends-buttons > a {
+  margin: 2vw 2vw 0 2vw;
+  width: 190px;
+}
+#friends-list {
+  width: 90%;
+  margin: auto;
+}
+.friends {
+  background-color: white;
+  padding: 1vw;
+  margin: auto;
+}
+.friends-content {
+  width: 90%;
+  margin: auto;
+}
+.friends-options > i {
+  position: absolute;
+  right: 6vw;
+}
+#close-icon {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}
+/* ==== FRIENDS SEARCH ====================================================== */
+#search-input {
+  position: relative;
+  border-radius: 6px;
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  margin-top: 1vw;
+  padding: 0 3vw 1vw 3vw;
+}
+#search-icon {
+  font-size: 2.3rem;
+  position: relative;
+  top: 45px;
+  left: 6px;
+}
+#search-input > form > input {
+  padding-left: 4vw;
+  border: solid 1px black;
+  width: 90%;
+  margin: auto;
+}
+#search-input > form > input[type=submit] {
+  margin-left: 3%;
+  margin-bottom: 6px;
+}
+#search-results {
+  border: solid 1px black;
+}
+#search-results > h1 {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 2.6rem;
+}
+.user {
+  position: relative;
+  border: solid 1px black;
+  margin: auto;
+  padding-bottom: 6px;
+}
+.user > img {
+  margin: 3px;
+  margin-bottom: -3px;
+}
+.user > ul {
+  position: absolute;
+  right: 10px;
+  top: 16px;
+}
+.user > ul > li {
+  display: inline-block;
+  padding: 10px;
+}
+.user > ul > li > i {
+  font-size: 2rem;
+}
+.user-info {
+  display: inline-block;
+}
+.user-info h3 {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0;
+}
+.user-info span {
+  font-size: 2rem;
+  margin: 0;
+}
+.user-info h4 {
+  display: inline-block;
+  font-size: 2rem;
+  margin: 0;
+}
+/* ==== CHAT PAGE =========================================================== */
+.chat-page {
+  position: relative;
+  bottom: 0;
+  float: right;
+  width: 90%;
+}
+.add-user {
+  border: solid 1px black;
+  max-height: 30vh;
+  transition: 0.3s;
+}
+.add-user-friends {
+  margin: 1vh 0 1vh 0;
+  display: flex;
+}
+.add-user-friends-button {
+  cursor: pointer;
+  border: solid 1px black;
+}
+.chat-buttons {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  left: -12vw;
+  height: 10vh;
+  width: 12vw;
+  background-color: #E6FCFF;
+}
+.chat-buttons > i {
+  color: #039be5;
+  cursor: pointer;
+}
+.chat-area {
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+}
+.chat-message {
+  position: relative;
+  min-height: auto;
+  margin-top: 0.5vh;
+  overflow-wrap: break-word;
+}
+.profile-picture {
+  float: left;
+  display: flex;
+}
+.profile-picture > img {
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+}
+.message-content {
+  float: right;
+  width: 80%;
+}
+
+/*===== MEDIA QUERIES ======================================================= */
+@media only screen and (min-width: 1920px) {
+  #friends-container[data-state=show] {
+    left: -25vw;
+  }
+  #friends-container[data-state=hide] {
+    left: -100vw;
+  }
+  .friends {
+    border-radius: 0.3vw;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  /* ==== DASHBOARD ========================================================= */
+  #sidenav-show > div {
+    font-size: 1.25rem;
+  }
+  /* ==== FRIENDS LIST ======================================================== */
+  #friends-container[data-state=show] {
+    left: -17vw;
+  }
+  #friends-container[data-state=hide] {
+    left: -52vw;
+  }
+  #friends-buttons > a {
+    margin: 0.3vw 1vw 0 1vw;
+    width: 190px;
+  }
+  .friends {
+    border-radius: 0.3vw;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1600px) {
+  /* ==== DASHBOARD ========================================================= */
+  #sidenav-show > div {
+    font-size: 1.25rem;
+  }
+  /* ==== FRIENDS LIST ====================================================== */
+  #friends-container[data-state=show] {
+    left: -15.1vw;
+  }
+  #friends-container[data-state=hide] {
+    left: -84vw;
+  }
+  #friends-buttons > a {
+    margin: 0.6vw 1vw 0 1vw;
+  }
+  .friends {
+    border-radius: 0.6vw;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* ==== DASHBOARD ========================================================= */
+  /* ==== FRIENDS LIST ====================================================== */
+  #friends-container[data-state=show] {
+    left: -70px;
+  }
+  #friends-container[data-state=hide] {
+    left: -800px;
+  }
+  #friends-list-control > i {
+    font-size: 3rem;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+    /* ==== HEADER ============================================================= */
+  .home{
+    cursor: pointer;
+  }
+  .nav-buttons {
+    cursor: pointer;
+    position: relative;
+    height: 100%;
+    margin-top: 2vh;
+    z-index: 1;
+  }
+  .nav-buttons > a {
+    position: relative;
+    z-index: 1;
+  }
+  .nav-buttons > a > i {
+    position: relative;
+    z-index: 1;
+  }
+  #notifications-button {
+    cursor: pointer;
+    color: white;
+    position: relative;
+    top: -2vh;
+    left: -2vw;
+    height: 60%;
+    border: none;
+    background-color: inherit;
+  }
+  #notificatons-badge[data-state=show] {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    background-color: red;
+    border-radius: 20px;
+    height: 15px;
+    width: 15px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 1rem;
+    z-index: 5;
+  }
+  #notifications-badge[data-state=hide] {
+    display: none;
+  }
+  /* ==== NOTIFICATIONS ====================================================== */
+  .notifications-list[data-show="yes"] {
+    position: absolute;
+    top: 8vh;
+    right: 7vw;
+    display: block;
+    border: solid 1px black;
+    height: 30vh;
+    width: 50vw;
+    overflow-y: scroll;
+    overflow-x: none;
+    z-index: 50;
+  }
+  .notifications-list[data-show="no"] {
+    display: none;
+  }
+  .notification-card {
+    background-color: lightgrey;
+    height: auto;
+    width: 100%;
+  }
+  .notification-card p {
+    padding: 1vh 1vw 1vh 1vw;
+  }
+  .notification-close {
+    position: absolute;
+    right: -3vw;
+    display: block;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    clear: left;
+    border: none;
+    height: 5vh;
+    width: 8vw;
+  }
+  .notification-accept {
+    display: inline-block;
+    font-size: 0.9rem;
+    border: none;
+    height: 3vh;
+  }
+  .notification-ignore {
+    display: inline-block;
+    font-size: 0.9rem;
+    border: none;
+    height: 3vh;
+  }
+  /* ==== LANDING PAGE ======================================================= */
+  .landing-page {
+    display: flex;
+    flex-direction: column;
+    margin-top: 6vh;
+  }
+  .form-buttons{
+    border: none;
+    border-top: 1px solid grey;
+    padding-top: 3vh;
+  }
+  .blurb {
+    text-align: left;
+    margin-left: 10vw;
+    margin-bottom: 3vh;
+  }
+  .blurb > h2 {
+    margin-top: 6vh;
+    margin-bottom: 1vh;
+    font-size: 1.5rem;
+  }
+  .blurb > p {
+    margin-bottom: 1vh;
+    margin-left: 3vw;
+  }
+  .blurb > ol {
+    list-style-type: circle;
+    margin-left: 9vw;
+  }
+  /* ==== DASHBOARD ========================================================== */
+  #popup {
+    background-color: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    top: -1vh;
+    height: 110%;
+    width: 100%;
+    z-index: 950;
+  }
+  #popup[data-state=show] {
+    display: block;
+  }
+  #popup[data-state=hide] {
+    display: none;
+  }
+  #popup > div > div {
+    position: absolute;
+    background-color: #E6FCFF;
+    top: 33vh;
+    left: 10vw;
+    height: 10vh;
+    width: 80vw;
+    padding: 3vw;
+  }
+  #popup i {
+    float: right;
+  }
+  .welcome {
+    z-index: 0;
+  }
+  #sidenav-show {
+    box-shadow: 3px 6px 9px grey;
+    position: fixed;
+    float: left;
+    margin-top: 30vh;
+    width: 50px;
+    height: 270px;
+    line-height: 1.6rem;
+    border: solid 1px black;
+    border-left: 0;
+    border-radius: 0 9px 9px 0;
+    z-index: 900;
+  }
+  #sidenav-show > i {
+    margin: 7px 13px;
+  }
+  #sidenav-show > div {
+    font-size: 1.3rem;
+    text-align: center;
+    margin: 0;
+  }
+  .dashboard > h1 {
+    font-size: 3rem;
+    margin-top: 3vw;
+  }
+  .dashboard-body > p {
+    margin-top: 3vh;
+    margin-left: 1vw;
+    font-size: 1rem;
+  }
+  /* ==== FRIENDS LIST ======================================================== */
+  #friends-container {
+    border: solid 1px black;
+    border-left: 0;
+    border-radius: 0 1vw 1vw 0;
+    position: absolute;
+    height: 90vh;
+    max-height: 150vh;
+    width: 90vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    z-index: 900;
+  }
+  #friends-container::-webkit-scrollbar {
+    width: 1rem;
+  }
+  #friends-container::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  }
+  #friends-container::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+    border-radius: 1vw;
+  }
+  #friends-container > h3 {
+    text-align: center;
+    letter-spacing: 1rem;
+    margin: 0 auto;
+    margin-top: 6vw;
+    margin-left: 6vw;
+  }
+  #friends-container[data-state=show] {
+    transition: 0.3s;
+    position: absolute;
+    left: -1vw;
+  }
+  #friends-container[data-state=hide] {
+    transition: 0.3s;
+    left: -800px;
+  }
+  #friends-list-control > i {
+
+    font-size: 2.6rem;
+    position: absolute;
+    right: 1vw;
+    top: 1vw;
+  }
+  #friends-buttons {
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-between;
+  }
+  #friends-buttons > a {
+    margin: 2vw 2vw 0 2vw;
+    width: 190px;
+  }
+  #friends-list {
+    width: 90%;
+    margin: auto;
+  }
+  .friends {
+    background-color: white;
+    padding: 3vw;
+    margin: auto;
+  }
+  .friends-content {
+    width: 90%;
+    margin: auto;
+  }
+  .friends-options > i {
+    position: absolute;
+    right: 6vw;
+  }
+  #close-icon {
+    position: absolute;
+    right: 6px;
+    top: 6px;
+  }
+  /* ==== FRIENDS SEARCH ====================================================== */
+  #search-input {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    margin: auto;
+    margin-top: 1vh;
+  }
+  #search-icon {
+    font-size: 2.3rem;
+    position: relative;
+    top: 45px;
+    left: 6px;
+  }
+  #search-input input[type=text] {
+    background: url(https://image.flaticon.com/icons/svg/126/126474.svg);
+    background-size: 25px 25px;
+    background-repeat: no-repeat;
+    background-position: 1% 50%;
+    border: solid 1px black;
+    width: 93%;
+    height: 35px;
+    margin: auto;
+    margin-top: 3vh;
+    text-indent: 10px;
+  }
+  #search-input input[type=submit] {
+    background-image: none;
+    border: none;
+    margin-top: 1vh;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+  }
+  #search-results {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  #search-results > h1 {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 2.6rem;
+  }
+  .search-user {
+    position: relative;
+    background-color: #E6FCFF;
+    margin: auto;
+    margin-top: 1vh;
+    padding-bottom: 6px;
+    height: 10vh;
+  }
+  .search-user > img {
+    float: left;
+    margin: 1px;
+    margin-bottom: -3px;
+  }
+  .search-user-content {
+  }
+  .search-user-info {
+    display: inline-block;
+    margin-left: 1vw;
+    margin-bottom: 1vh;
+  }
+  .search-user-info h3 {
+    display: inline-block;
+    font-size: 2rem;
+    margin: 0;
+  }
+  .search-user-info span {
+    font-size: 1rem;
+    margin: 0;
+  }
+  .search-user-info h4 {
+    display: inline-block;
+    font-size: 1rem;
+    margin: 0;
+  }
+  .search-result-buttons {
+    position: absolute;
+    top: 5vh;
+    left: 17vw;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.5rem;
+  }
+  .search-result-buttons > li {
+    cursor: pointer;
+  }
+  /* ==== FRIEND CARDS ======================================================== */
+  .friends {
+    background-color: #E6FCFF;
+    margin-top: 3vh;
+  }
+  .friends-top { 
+    display: flex;
+    width: 100%;
+  }
+  .friends-name {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  .friends-username {
+    line-height: 1.2rem;
+    margin-left: 4vw;
+  }
+  .friends-top > a { 
+    display: flex;
+    border: none;
+    border-radius: 1vw;
+    background-color: inherit;
+  }
+  .friend-card-buttons {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 1vw;
+  }
+  .friend-card-buttons > a {
+    cursor: pointer;
+  }
+  /* ==== CHATS LIST ========================================================== */
+  .chats-list {
+    position: relative;
+    z-index: 0;
+  }
+  /* ==== CHAT PAGE =========================================================== */
+  .chat-area {
+    height: 80vh;
+    z-index: 0;
+  }
+  .chat-page {
+    z-index: 0;
+  }
+  .chat-page form {
+    border: solid 1px black;
+  }
+}
